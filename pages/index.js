@@ -22,18 +22,7 @@ class Index extends React.Component {
           onSelection={(resources) => this.handleSelection(resources)}
           onCancel={() => this.setState({ open: false })}
         />
-        <Layout>
-          <EmptyState
-            heading="Boost your sales with product customization!"
-            action={{
-              content: 'Select Products',
-              onAction: () => this.setState({ open: true }),
-            }}
-            image={img}
-          >
-            <p>Select products to customize.</p>
-          </EmptyState>
-        </Layout>
+
       </Page>
     );
   }

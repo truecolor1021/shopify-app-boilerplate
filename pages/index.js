@@ -1,7 +1,7 @@
-import { EmptyState, Layout, Page } from '@shopify/polaris';
-import { ResourcePicker, TitleBar } from '@shopify/app-bridge-react';
+import { EmptyState, Layout, Page } from "@shopify/polaris";
+import { ResourcePicker, TitleBar } from "@shopify/app-bridge-react";
 
-const img = 'https://cdn.shopify.com/s/files/1/0757/9955/files/empty-state.svg';
+const img = "https://cdn.shopify.com/s/files/1/0757/9955/files/empty-state.svg";
 
 class Index extends React.Component {
   state = { open: false };
@@ -11,7 +11,7 @@ class Index extends React.Component {
         <TitleBar
           title="Welcome"
           primaryAction={{
-            content: 'Select Products',
+            content: "Select Products",
             onAction: () => this.setState({ open: true }),
           }}
         />
@@ -22,14 +22,25 @@ class Index extends React.Component {
           onSelection={(resources) => this.handleSelection(resources)}
           onCancel={() => this.setState({ open: false })}
         />
-
+        <Layout>
+          <EmptyState
+            heading="Boost your sales with product customization!"
+            action={{
+              content: "Select Products",
+              onAction: () => this.setState({ open: true }),
+            }}
+            image={img}
+          >
+            <p>Select products to customize.</p>
+          </EmptyState>
+        </Layout>
       </Page>
     );
   }
   handleSelection = (resources) => {
     const idsFromResources = resources.selection.map((product) => product.id);
-    this.setState({ open: false })
-    console.log(idsFromResources)
+    this.setState({ open: false });
+    console.log(idsFromResources);
   };
 }
 
